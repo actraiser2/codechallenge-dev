@@ -82,4 +82,4 @@ tolerations: []
 affinity: {}
 
 datasource:
-  maximumPoolSize: 10
+  maximumPoolSize: 11
