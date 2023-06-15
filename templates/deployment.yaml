@@ -46,8 +46,8 @@ spec:
               path: /actuator/health/readiness
               port: http
           envFrom:
-            configMapRef:
-              name: codechallenge2-cm
+            - configMapRef:
+                name: codechallenge2-cm
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
