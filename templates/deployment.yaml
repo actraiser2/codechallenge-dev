@@ -36,6 +36,12 @@ spec:
           env:
             - name: COLOR
               value: BLUE
+            - name: POSTGRESQL_PASSWORD
+              valueFrom:
+                secretKeyRef: 
+                  name: postgresql
+                  key: postgres-password
+                
           ports:
             - name: http-service
               containerPort: 8080
