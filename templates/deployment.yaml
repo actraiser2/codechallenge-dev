@@ -35,15 +35,12 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: COLOR
-              value: BLUE
+              value: RED
             - name: POSTGRESQL_PASSWORD
               valueFrom:
                 secretKeyRef: 
                   name: postgresql
                   key: postgres-password
-          envFrom:
-            configMapRef:
-              name: codechallenge2-cm
                 
           ports:
             - name: http-service
