@@ -41,6 +41,11 @@ spec:
                 secretKeyRef: 
                   name: postgresql
                   key: postgres-password
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                configMapKetRef:
+                  name: codechallenge2-cm
+                  key: SPRING_DATASOURCE_USERNAME
                 
           ports:
             - name: http-service
