@@ -43,7 +43,7 @@ spec:
                   key: postgres-password
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
-                configMapKetRef:
+                configMapKeyRef:
                   name: codechallenge2-cm
                   key: SPRING_DATASOURCE_USERNAME
                 
