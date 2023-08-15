@@ -61,8 +61,8 @@ resources:
     memory: 400Mi
     cpu: 0.5
   requests:
-    memory: 100Mi
-    cpu: 100m
+    memory: 60Mi
+    cpu: 60m
     
 
   # We usually recommend not to specify default resources and to leave this as a conscious
