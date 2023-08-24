@@ -36,11 +36,6 @@ spec:
           env:
             - name: COLOR
               value: RED
-            - name: POSTGRESQL_PASSWORD
-              valueFrom:
-                secretKeyRef: 
-                  name: postgresql
-                  key: postgres-password
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 configMapKeyRef:
