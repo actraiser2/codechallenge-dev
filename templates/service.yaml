@@ -9,10 +9,9 @@ spec:
   ports:
     - port: {{ .Values.service.port }}
       targetPort: http-service
-      protocol: TCP
       name: http
     - port: {{ .Values.managementService.port }}
       targetPort: http-management
-      protocol: TCP
+      name: http-management
   selector:
     {{- include "helm.selectorLabels" . | nindent 4 }}
