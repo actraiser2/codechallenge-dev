@@ -10,7 +10,6 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: http-service
       nodePort: 30000
-      type: NodePort
       name: http
     - port: {{ .Values.managementService.port }}
       targetPort: http-management
