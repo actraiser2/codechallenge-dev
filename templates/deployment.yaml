@@ -37,11 +37,9 @@ spec:
           env:
             - name: COLOR
               value: RED
-            - name: SPRING_DATASOURCE_PASSWORD
-              valueFrom:
-                configMapKeyRef:
+            - envFrom: 
+                configMapRef:
                   name: codechallenge2-cm
-                  key: SPRING_DATASOURCE_USERNAME
                 
           ports:
             - name: http-service
