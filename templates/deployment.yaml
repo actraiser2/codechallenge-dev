@@ -37,9 +37,9 @@ spec:
           env:
             - name: COLOR
               value: RED
-            - envFrom: 
-                - configMapRef:
-                    name: codechallenge2-cm
+          envFrom: 
+            - configMapRef:
+                name: codechallenge2-cm
                 
           ports:
             - name: http-service
