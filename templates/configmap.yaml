@@ -7,3 +7,4 @@ data:
   SPRING_DATASOURCE_URL: "jdbc:postgresql://postgresql.database:5432/codechallenge"
   SPRING_DATASOURCE_USERNAME: jmbesada
   SPRING_DATASOURCE_PASSWORD: fenix000
+  SERVER_SHUTDDOWN: graceful
