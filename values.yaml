@@ -4,6 +4,10 @@
 
 replicaCount: 1
 
+labels:
+  name: codechallenge
+  version: 1.0.0
+
 image:
   repository: quay.io/josemiguelbesada/codechallenge
   pullPolicy: Always
