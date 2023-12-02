@@ -8,4 +8,4 @@ data:
   SPRING_DATASOURCE_USERNAME: {{ .Values.datasource.username }}
   SPRING_DATASOURCE_PASSWORD: {{ .Values.datasource.password }}
   SERVER_SHUTDDOWN: graceful
-  SPRING_CLOUD_STREAM_BINDINGS_ACCOUNTS-IN-0_CONSUMER_AUTO_START: {{ .Values.topics.autostart-topics }}
+  SPRING_CLOUD_STREAM_BINDINGS_ACCOUNTS-IN-0_CONSUMER_AUTO_START: {{ .Values.topics."autostart-topics" }}
