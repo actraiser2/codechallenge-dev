@@ -95,3 +95,6 @@ affinity: {}
 
 datasource:
   maximumPoolSize: 11
+  database-url: jdbc:postgresql://postgresql.database:5432/codechallenge
+  username: jmbesada
+  password: fenix000
