@@ -98,3 +98,4 @@ datasource:
   database-url: jdbc:postgresql://postgresql.database:5432/codechallenge
   username: jmbesada
   password: fenix000
+  autostart-topics: false
