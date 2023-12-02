@@ -4,8 +4,8 @@ metadata:
   name: codechallenge2-cm
 data:
   SPRING_DATASOURCE_HIKARI_MAXIMUM_POOL_SIZE: "{{ .Values.datasource.maximumPoolSize }}"
-  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgresql.database:5432/codechallenge"
-  SPRING_DATASOURCE_USERNAME: jmbesada
-  SPRING_DATASOURCE_PASSWORD: fenix000
+  SPRING_DATASOURCE_URL: {{ .Values.datasource.database-url }}
+  SPRING_DATASOURCE_USERNAME: {{ .Values.datasource.username }}
+  SPRING_DATASOURCE_PASSWORD: {{ .Values.datasource.password }}
   SERVER_SHUTDDOWN: graceful
   SPRING_CLOUD_STREAM_BINDINGS_ACCOUNTS-IN-0_CONSUMER_AUTO_START: false
