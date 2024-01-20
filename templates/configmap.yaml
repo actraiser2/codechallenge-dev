@@ -8,3 +8,6 @@ data:
   SPRING_DATASOURCE_USERNAME: {{ .Values.datasource.username | quote }}
   SPRING_DATASOURCE_PASSWORD: {{ .Values.datasource.password | quote }}
   SERVER_SHUTDDOWN: graceful
+  SPRING_RABBITMQ_HOST: rabbitmq.default.svc
+  SPRING_RABBITMQ_USERNAME: rabbitmq
+  SPRING_RABBITMQ_PASSWORD: fenix000

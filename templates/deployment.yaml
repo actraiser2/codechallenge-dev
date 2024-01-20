@@ -55,12 +55,14 @@ spec:
               port: http-management
             initialDelaySeconds: 30
             periodSeconds: 10
+          {{- if .Values.includeReadiness }}
           readinessProbe:
             httpGet:
               path: /management/health/readiness
               port: http-management
             initialDelaySeconds: 40
             periodSeconds: 30
+          {{- end }}
           envFrom:
             - configMapRef:
                 name: codechallenge2-cm

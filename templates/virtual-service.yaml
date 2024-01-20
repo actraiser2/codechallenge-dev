@@ -1,0 +1,100 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: codechallenge-gateway
+spec:
+  # The selector matches the ingress gateway pod labels.
+  # If you installed Istio using Helm following the standard documentation, this would be "istio=ingress"
+  selector:
+    istio: gateway # use istio default controller
+  servers:
+  - port:
+      number: 80
+      name: http-service
+      protocol: HTTP
+    hosts:
+    - "*"
+  - hosts:
+      - "*"
+    port:
+      number: 443
+      name: https
+      protocol: https
+    tls:
+      mode: SIMPLE
+      credentialName: josemi-credentials
+  - hosts:
+      - "*"
+    port:
+      number: 8081
+      name: http-monitor
+      protocol: http
+
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: tcp-gateway
+spec:
+  # The selector matches the ingress gateway pod labels.
+  # If you installed Istio using Helm following the standard documentation, this would be "istio=ingress"
+  selector:
+    istio: gateway # use istio default controller
+  servers:
+  - port:
+      number: 5432
+      name: tcp
+      protocol: TCP
+    hosts:
+    - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: codechallenge-vs  
+spec:
+  hosts:
+  - "santalucia.com"   
+  gateways:
+  - codechallenge-gateway           
+  http:
+  - route:
+    - destination:              
+        host: codechallenge2.default.svc.cluster.local
+        port:
+          number: 8080
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: codechallenge-monitor-vs  
+spec:
+  hosts:
+  - "monitor.codechallenge.com"   
+  gateways:
+  - codechallenge-gateway           
+  http:
+  - route:
+    - destination:              
+        host: codechallenge2.default.svc.cluster.local
+        port:
+          number: 8081
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: database-vs  
+spec:
+  hosts:
+  - "*"   
+  gateways:
+  - tcp-gateway           
+  tcp:
+  - match:
+      - port: 5432
+    route:
+      - destination:
+          host: postgresql.database.svc.cluster.local
+          port:
+            number: 5432
+         

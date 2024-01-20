@@ -8,6 +8,8 @@ labels:
   name: codechallenge
   version: 1.0.0
 
+includeReadiness: true
+
 image:
   repository: quay.io/josemiguelbesada/codechallenge
   pullPolicy: Always
