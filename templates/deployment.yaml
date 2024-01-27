@@ -63,7 +63,7 @@ spec:
               path: /management/health/readiness
               port: http-management
             initialDelaySeconds: 40
-            periodSeconds: 30
+            periodSeconds: 35
           {{- end }}
           envFrom:
             - configMapRef:
