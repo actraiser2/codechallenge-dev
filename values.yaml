@@ -11,7 +11,7 @@ labels:
 includeReadiness: true
 
 image:
-  repository: quay.io/josemiguelbesada/codechallenge
+  repository: docker.io/actraiser/codechallenge
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
